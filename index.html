@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz en Islam</title>
+<link rel="icon" href="/favicon.png" src="" type="image/png">
+  </head>
+  <body>
+    <div id="app">
+      <h2 style="text-align: center;">Quiz en <span class="js">Islam</span></h2>
+      <button id="start">Démarrer le jeu</button>
+    </div>
+
+    <div class="bubbles"></div>
+
+    <footer>
+      <p class="copyright">&copy; Abou fatima 2025</p>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+
+    <script>
+      const arabicLetters = ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه","و","ي"];
+      function createBubble() {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        bubble.textContent = arabicLetters[Math.floor(Math.random() * arabicLetters.length)];
+        bubble.style.left = Math.random() * 100 + "vw";
+        bubble.style.fontSize = (Math.random() * 30 + 20) + "px";
+        bubble.style.animationDuration = (Math.random() * 5 + 5) + "s";
+        document.querySelector(".bubbles").appendChild(bubble);
+        setTimeout(() => bubble.remove(), 10000);
+      }
+      setInterval(createBubble, 800);
+    </script>
+  </body>
+</html>
